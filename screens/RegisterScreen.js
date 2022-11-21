@@ -22,22 +22,27 @@ const Register = () => {
     const signUp = () => {
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+
         setDoc(doc(db, 'cadastro', userCredential.user.uid), {
           nomeUsuario: name,
           cpfUsuario: cpf,
           endereco: adress,
           cepUsuario: cep,
+          userID: userCredential.user.uid,
         }); 
-        console.log("Usuário Adicionado com Sucesso.");   
+        console.log("Usuário Adicionado com Sucesso.");  
       
       })
-      
-      
+         
       .catch((error) => {
        console.log("Ocorreu um erro ao cadastrar o usuário.")
        console.log("Error:" + error.mesage)
       })
    }
+
+   const logBack = () => {
+    navigation.navigate("Login")
+  }
 
    
 
@@ -48,7 +53,9 @@ const Register = () => {
     <KeyboardAvoidingView style={styles.container}>
     
     <View style={styles.topPortion}> 
-    <Ionicons style={styles.logIcon} name="chevron-back-outline" size={35} color="#48D3CB"/>
+      <TouchableOpacity onPress={logBack}>
+        <Ionicons style={styles.logIcon} name="chevron-back-outline" size={35} color="#48D3CB"/>
+      </TouchableOpacity>
     <Text style={styles.topText}>Cadastro</Text>
     </View>
     
