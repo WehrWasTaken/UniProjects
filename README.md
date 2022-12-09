@@ -14,8 +14,6 @@ Built in React Expo, Firebase and NativeWind CSS.
   <img src="https://i.imgur.com/ERDi1bT.png" />
 </p>
 
-### Mockup (v1)
-
 <p align="center">
   <img src="https://i.imgur.com/2tjB4Ro.png" />
 </p>
